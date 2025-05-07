@@ -1,0 +1,74 @@
+@page "/myreservations"
+@using CarRentalApp.Models
+@inject CarRentalApp.Services.LocalStorageService LocalStorage
+@inject CarRentalApp.Services.AuthService AuthService
+@inject IJSRuntime JS
+
+<h3>Moje Rezerwacje</h3>
+
+@if (!AuthService.IsLoggedIn())
+{
+    <p>Musisz być zalogowany, aby zobaczyć swoje rezerwacje!</p>
+}
+else
+{
+    @if (myCars.Count == 0)
+    {
+        <p>Nie masz żadnych aktywnych rezerwacji.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var car in myCars)
+            {
+                <li>
+                    @car.Make @car.Model - @car.LicensePlate
+                    <button @onclick="() => ReturnCar(car)">Oddaj samochód</button>
+                </li>
+            }
+        </ul>
+    }
+}
+
+@code {
+    private List<Car> allCars = new List<Car>();
+    private List<Car> myCars = new List<Car>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        allCars = await LocalStorage.GetItemAsync<List<Car>>("cars") ?? new List<Car>();
+        await AuthService.LoadUserAsync();
+
+        if (AuthService.CurrentUser != null)
+        {
+            myCars = allCars
+                .Where(c => c.ReservedByUserId == AuthService.CurrentUser.Username)
+                .ToList();
+        }
+    }
+
+    private async Task ReturnCar(Car car)
+    {
+        if (AuthService.CurrentUser == null)
+        {
+            await JS.InvokeVoidAsync("alert", "Musisz być zalogowany!");
+            return;
+        }
+
+        // Zmiana statusu samochopdu na "dostępny"
+        car.IsAvailable = true;
+        car.ReservedByUserId = null;
+
+        // Zapisanie zmian do LocalStorage
+        await LocalStorage.SetItemAsync("cars", allCars);
+
+        await JS.InvokeVoidAsync("alert", $"Oddano samochód {car.Make} {car.Model}!");
+
+        // Odświeżanie widoku
+        myCars = allCars
+            .Where(c => c.ReservedByUserId == AuthService.CurrentUser.Username)
+            .ToList();
+
+        StateHasChanged();
+    }
+}

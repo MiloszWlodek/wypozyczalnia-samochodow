@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using CarRentalApp.Services
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="sidebar">
+    <NavLink href="/" Match="NavLinkMatch.All">Strona Główna</NavLink>
+
+    @if (!AuthService.IsLoggedIn())
+    {
+        <NavLink href="register" Match="NavLinkMatch.All">Rejestracja</NavLink>
+        <NavLink href="login" Match="NavLinkMatch.All">Logowanie</NavLink>
+    }
+    else
+    {
+        <NavLink href="rental" Match="NavLinkMatch.All">Wypożyczalnia</NavLink>
+        <NavLink href="myreservations" Match="NavLinkMatch.All">Moje Rezerwacje</NavLink>
+        <NavLink href="profile" Match="NavLinkMatch.All">Mój Profil</NavLink>
+        <button @onclick="Logout" style="margin-top:10px;">Wyloguj się</button>
+
+        @if (AuthService.CurrentUser != null)
+        {
+            <p style="margin-top: 10px;">Punkty: @AuthService.CurrentUser.LoyaltyPoints</p>
+            <p>Aktualny rabat: @GetCurrentDiscount() %</p>
+        }
+    }
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.LoadUserAsync();
+    }
+
+    private async Task Logout()
+    {
+        await AuthService.LogoutAsync();
+        Navigation.NavigateTo("/");
+        StateHasChanged(); // Odśwież widok po wylogowaniu
+    }
+
+    private int GetCurrentDiscount()
+    {
+        if (AuthService.CurrentUser?.LoyaltyPoints >= 100)
+            return 20;
+        else if (AuthService.CurrentUser?.LoyaltyPoints >= 50)
+            return 10;
+        else
+            return 0;
+    }
+}

@@ -1,0 +1,49 @@
+@page "/login"
+@using CarRentalApp.Models
+@inject CarRentalApp.Services.LocalStorageService LocalStorage
+@inject IJSRuntime JS
+
+<h3>Logowanie</h3>
+
+<EditForm Model="loginUser" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Nazwa użytkownika:</label><br />
+        <InputText @bind-Value="loginUser.Username" />
+    </div>
+
+    <div>
+        <label>Hasło:</label><br />
+        <InputText @bind-Value="loginUser.Password" type="password" />
+    </div>
+
+    <button type="submit">Zaloguj się</button>
+</EditForm>
+
+@code {
+    private User loginUser = new User();
+    private List<User> users = new List<User>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await LocalStorage.GetItemAsync<List<User>>("users") ?? new List<User>();
+    }
+
+    private async Task HandleLogin()
+    {
+        var user = users.FirstOrDefault(u => u.Username == loginUser.Username && u.Password == loginUser.Password);
+
+        if (user == null)
+        {
+            await JS.InvokeVoidAsync("alert", "Błędny login lub hasło!");
+            return;
+        }
+
+        await LocalStorage.SetItemAsync("loggedUser", user);
+
+        await JS.InvokeVoidAsync("alert", "Zalogowano pomyślnie!");
+
+    }
+}

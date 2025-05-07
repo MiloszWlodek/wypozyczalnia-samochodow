@@ -1,0 +1,38 @@
+@page "/profile"
+@using CarRentalApp.Models
+@inject CarRentalApp.Services.AuthService AuthService
+@inject CarRentalApp.Services.LocalStorageService LocalStorage
+@inject IJSRuntime JS
+
+<h3>Mój Profil</h3>
+
+@if (!AuthService.IsLoggedIn())
+{
+    <p>Musisz być zalogowany, aby zobaczyć swój profil!</p>
+}
+else
+{
+    <div style="margin-bottom: 20px;">
+        <p><strong>Nazwa użytkownika:</strong> @AuthService.CurrentUser.Username</p>
+        <p><strong>Email:</strong> @AuthService.CurrentUser.Email</p>
+        <p><strong>Punkty lojalnościowe:</strong> @AuthService.CurrentUser.LoyaltyPoints</p>
+        <p><strong>Aktualny rabat:</strong> @GetCurrentDiscount() %</p>
+    </div>
+}
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.LoadUserAsync();
+    }
+
+    private int GetCurrentDiscount()
+    {
+        if (AuthService.CurrentUser?.LoyaltyPoints >= 100)
+            return 20;
+        else if (AuthService.CurrentUser?.LoyaltyPoints >= 50)
+            return 10;
+        else
+            return 0;
+    }
+}

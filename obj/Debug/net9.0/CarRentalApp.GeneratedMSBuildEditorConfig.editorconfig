@@ -28,26 +28,58 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/CarList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/CarRental.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyUmVudGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/MyReservations.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/UserProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclByb2ZpbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Pages/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Shared/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Shared/NavMenuLink.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnVMaW5rLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-y1aco6yn6u
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-md01dgvm8d
 
-[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-xfws1ma9jb
+[C:/Users/mp200/wypozyczalnia-samochodow/CarRentalApp/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-pt7c88rewj

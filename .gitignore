@@ -1,41 +1,18 @@
-# Visual Studio
 .vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-# Build results
 bin/
 obj/
-[Bb]uild/
-[Ll]og/
-*.log
+**/bin/
+**/obj/
 
-# Publish results
-out/
-publish/
-
-# Dependency directories
-node_modules/
-packages/
-
-# Visual Studio Code
-.vscode/
-
-# ASP.NET / Blazor / Razor
-wwwroot/
-
-# Configuration files
-appsettings.*.json
-secrets.json
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Rider
 .idea/
+*.DotSettings.user
 
-# Logs
+appsettings*.json
+launchSettings.json
+
 *.log
