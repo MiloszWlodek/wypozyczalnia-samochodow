@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.server\\CarRentalApp.Server.csproj": {}
+    "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Server\\CarRentalApp.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.server\\CarRentalApp.Server.csproj": {
+    "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Server\\CarRentalApp.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.server\\CarRentalApp.Server.csproj",
+        "projectUniqueName": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Server\\CarRentalApp.Server.csproj",
         "projectName": "CarRentalApp.Server",
-        "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.server\\CarRentalApp.Server.csproj",
+        "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Server\\CarRentalApp.Server.csproj",
         "packagesPath": "C:\\Users\\mp200\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.server\\obj\\",
+        "outputPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj": {
-                "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj"
+              "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj": {
+                "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj"
               }
             }
           }
@@ -107,14 +107,14 @@
         }
       }
     },
-    "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj": {
+    "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
         "projectName": "CarRentalApp.Shared",
-        "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
+        "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
         "packagesPath": "C:\\Users\\mp200\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\obj\\",
+        "outputPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

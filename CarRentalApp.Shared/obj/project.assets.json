@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
       "projectName": "CarRentalApp.Shared",
-      "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
+      "projectPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\CarRentalApp.Shared.csproj",
       "packagesPath": "C:\\Users\\mp200\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow-main\\CarRentalApp.Shared\\obj\\",
+      "outputPath": "C:\\Users\\mp200\\Desktop\\wypozyczalnia-samochodow\\CarRentalApp.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
