@@ -1,0 +1,84 @@
+@page "/my-reservations"
+@inject AuthService Auth
+@inject ReservationService Reservations
+
+<h3>Moje rezerwacje</h3>
+
+@code {
+    private CarRentalApp.Shared.Models.User? currentUser;
+    private List<CarRentalApp.Shared.Models.ReservationDto>? list;
+    private bool loading;
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        await Auth.InitializeAsync();
+        currentUser = Auth.CurrentUser;
+
+        if (currentUser != null)
+            list = await Reservations.GetReservationsByUserAsync(currentUser.Id);
+
+        loading = false;
+    }
+
+    private async Task CancelAsync(int id)
+    {
+        if (currentUser == null) return;
+
+        var ok = await Reservations.CancelReservationAsync(id);
+        if (ok)
+            list = await Reservations.GetReservationsByUserAsync(currentUser.Id);
+        else
+            error = "Nie udało się anulować rezerwacji.";
+    }
+}
+
+@if (loading)
+{
+    <p>Ładowanie…</p>
+}
+else if (currentUser == null)
+{
+    <p>Musisz się zalogować, aby zobaczyć rezerwacje.</p>
+}
+else if (list == null || !list.Any())
+{
+    <p>Brak rezerwacji.</p>
+}
+else
+{
+    @if (error != null)
+    {
+        <div class="alert alert-danger">@error</div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Samochód</th>
+                <th>Od</th>
+                <th>Do</th>
+                <th>Punkty</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in list)
+            {
+                <tr>
+                    <td>@r.CarMakeModel</td>
+                    <td>@r.StartDate:yyyy-MM-dd</td>
+                    <td>@r.EndDate:yyyy-MM-dd</td>
+                    <td>@(r.UseLoyaltyPoints ? "Tak" : "Nie")</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger"
+                                @onclick="() => CancelAsync(r.Id)">
+                            Anuluj
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

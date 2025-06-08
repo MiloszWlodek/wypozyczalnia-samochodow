@@ -1,0 +1,29 @@
+@page "/user"
+@inject AuthService Auth
+
+<h3>Twoje konto</h3>
+
+@code {
+    private CarRentalApp.Shared.Models.User? currentUser;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Auth.InitializeAsync();
+        currentUser = Auth.CurrentUser;
+    }
+}
+
+@if (currentUser == null)
+{
+    <p>Ładowanie danych użytkownika…</p>
+}
+else
+{
+    <p><strong>Login:</strong>     @currentUser.Username</p>
+    <p><strong>Email:</strong>     @currentUser.Email</p>
+    <p><strong>Punkty:</strong>    @currentUser.LoyaltyPoints</p>
+
+    <NavLink class="btn btn-primary"    href="/user/profile">Edytuj profil</NavLink>
+    <NavLink class="btn btn-secondary"  href="/my-reservations">Moje rezerwacje</NavLink>
+    <NavLink class="btn btn-success"    href="/car-rental">Nowa rezerwacja</NavLink>
+}

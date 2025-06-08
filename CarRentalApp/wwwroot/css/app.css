@@ -1,0 +1,42 @@
+/* Style dla NavMenu */
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+}
+
+.sidebar a,
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar button:hover {
+    background-color: #e2e6ea;
+    color: #000;
+}
+
+.page {
+    display: flex;
+}
+
+main {
+    margin-left: 220px;
+    padding: 20px;
+    width: 100%;
+}

@@ -1,0 +1,28 @@
+﻿@using CarRentalApp.Services
+@using CarRentalApp.Shared
+@inject AuthService Auth
+@inject NavigationManager Nav
+
+<div class="sidebar">
+    <NavLink href="/" Match="NavLinkMatch.All">Strona Główna</NavLink>
+
+    @if (!Auth.IsLoggedIn())
+    {
+        <NavLink href="register">Rejestracja</NavLink>
+        <NavLink href="login">Logowanie</NavLink>
+    }
+    else
+    {
+        <NavLink href="user">Moje Konto</NavLink>
+        <NavLink href="cars">Wypożycz Samochód</NavLink>
+        <a @onclick="Logout">Wyloguj</a>
+    }
+</div>
+
+@code {
+    async Task Logout()
+    {
+        await Auth.LogoutAsync();
+        Nav.NavigateTo("/");
+    }
+}

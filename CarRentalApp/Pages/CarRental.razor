@@ -1,0 +1,95 @@
+@page "/car-rental"
+@inject AuthService Auth
+@inject ReservationService Reservations
+@inject NavigationManager Nav
+
+<h3>Nowa rezerwacja</h3>
+
+@code {
+    private CarRentalApp.Shared.Models.User? currentUser;
+    private CarRentalApp.Shared.Models.ReservationDto newRes
+        = new CarRentalApp.Shared.Models.ReservationDto();
+    private List<CarDto>? availableCars;
+    private bool submitting;
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Auth.InitializeAsync();
+        currentUser = Auth.CurrentUser;
+
+        if (currentUser != null)
+            availableCars = await Reservations.GetAvailableCarsAsync();
+    }
+
+    private async Task SubmitAsync()
+    {
+        if (currentUser == null) return;
+
+        submitting = true;
+        error = null;
+
+        newRes.UserId = currentUser.Id;
+
+        var ok = await Reservations.CreateReservationAsync(newRes);
+        if (ok)
+            Nav.NavigateTo("/my-reservations");
+        else
+            error = "Nie udało się zarezerwować samochodu.";
+
+        submitting = false;
+    }
+}
+
+@if (currentUser == null)
+{
+    <p>Ładowanie danych użytkownika…</p>
+}
+else if (availableCars == null)
+{
+    <p>Ładowanie dostępnych samochodów…</p>
+}
+else
+{
+    <p>Masz <strong>@currentUser.LoyaltyPoints</strong> punktów lojalnościowych.</p>
+
+    <EditForm Model="newRes" OnValidSubmit="SubmitAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Samochód</label>
+            <InputSelect class="form-select" @bind-Value="newRes.CarId">
+                @foreach (var c in availableCars)
+                {
+                    <option value="@c.Id">@c.Make @c.Model</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data od</label>
+            <InputDate class="form-control" @bind-Value="newRes.StartDate" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Data do</label>
+            <InputDate class="form-control" @bind-Value="newRes.EndDate" />
+        </div>
+
+        <div class="form-check mb-3">
+            <InputCheckbox class="form-check-input"
+                @bind-Value="newRes.UseLoyaltyPoints" />
+            <label class="form-check-label">
+                Wykorzystaj punkty lojalnościowe
+            </label>
+        </div>
+
+        <button class="btn btn-success" type="submit" disabled="@submitting">
+            Rezerwuj
+        </button>
+        @if (error != null)
+        {
+            <div class="alert alert-danger mt-2">@error</div>
+        }
+    </EditForm>
+}

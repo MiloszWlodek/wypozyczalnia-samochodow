@@ -1,0 +1,26 @@
+@using CarRentalApp.Services
+@page "/login"
+@inject AuthService Auth
+@inject NavigationManager Nav
+@inject IJSRuntime Js
+
+<EditForm Model="loginUser" OnValidSubmit="OnLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div><label>Login:</label><InputText @bind-Value="loginUser.Username" /></div>
+    <div><label>Hasło:</label><InputText @bind-Value="loginUser.Password" type="password" /></div>
+    <button type="submit">Zaloguj</button>
+</EditForm>
+
+@code {
+    UserLoginDto loginUser = new();
+
+    async Task OnLogin()
+    {
+        if (await Auth.LoginAsync(loginUser))
+            Nav.NavigateTo("/user");
+        else
+            await Js.InvokeVoidAsync("alert", "Błędny login lub hasło.");
+    }
+}
