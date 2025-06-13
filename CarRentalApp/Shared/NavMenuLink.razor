@@ -1,0 +1,14 @@
+@using Microsoft.AspNetCore.Components
+
+<a href="@Href" class="@CssClass">
+    @ChildContent
+</a>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Href { get; set; } = string.Empty;
+    [Parameter]
+    public string CssClass { get; set; } = string.Empty;
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

@@ -1,0 +1,39 @@
+@page "/register"
+@inject AuthService Auth
+@inject IJSRuntime Js
+@using CarRentalApp.Shared.Models
+@inject NavigationManager Nav
+@using CarRentalApp.Models
+@using CarRentalApp.Services
+
+<h3>Rejestracja</h3>
+
+<EditForm Model="newUser" OnValidSubmit="OnRegister">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div><label>Login:</label><InputText @bind-Value="newUser.Username" /></div>
+    <div><label>Email:</label><InputText @bind-Value="newUser.Email" /></div>
+    <div><label>Hasło:</label><InputText @bind-Value="newUser.Password" type="password" /></div>
+    <button type="submit">Zarejestruj</button>
+</EditForm>
+
+@code {
+    UserRegisterDto newUser = new();
+
+    async Task OnRegister()
+    {
+        if (await Auth.RegisterAsync(newUser))
+        {
+            Nav.NavigateTo("/login");
+        }
+        else
+        {
+            await Js.InvokeVoidAsync("alert", "Rejestracja nie powiodła się.");
+        }
+    }
+}
+using System.Runtime.InteropServices.Marshalling;
+#line default
+using System.Runtime.InteropServices.Marshalling;
+#line default

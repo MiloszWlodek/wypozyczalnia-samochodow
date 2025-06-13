@@ -1,0 +1,11 @@
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\bin\Debug\net9.0\CarRentalApp.Shared.deps.json
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\bin\Debug\net9.0\CarRentalApp.Shared.dll
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\bin\Debug\net9.0\CarRentalApp.Shared.pdb
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\CarRentalApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\CarRentalApp.Shared.AssemblyInfoInputs.cache
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\CarRentalApp.Shared.AssemblyInfo.cs
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\CarRentalApp.Shared.csproj.CoreCompileInputs.cache
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\CarRentalApp.Shared.dll
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\refint\CarRentalApp.Shared.dll
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\CarRentalApp.Shared.pdb
+C:\Users\mp200\Desktop\wypozyczalnia-samochodow-main\CarRentalApp.Shared\obj\Debug\net9.0\ref\CarRentalApp.Shared.dll

@@ -1,0 +1,69 @@
+@page "/user/profile"
+@inject AuthService Auth
+@inject HttpClient    Http
+@inject NavigationManager Nav
+
+<h3>Edytuj profil</h3>
+
+@code {
+    private CarRentalApp.Shared.Models.User? currentUser;
+    private bool saving;
+    private string? statusMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Auth.InitializeAsync();
+        currentUser = Auth.CurrentUser;
+    }
+
+    private async Task SaveAsync()
+    {
+        if (currentUser == null) return;
+
+        saving = true;
+        statusMessage = null;
+
+        var resp = await Http.PutAsJsonAsync(
+            $"api/users/{currentUser.Id}", currentUser);
+
+        if (resp.IsSuccessStatusCode)
+        {
+            statusMessage = "Zapisano zmiany";
+            Auth.CurrentUser = currentUser;
+        }
+        else
+        {
+            statusMessage = "Błąd podczas zapisu";
+        }
+
+        saving = false;
+    }
+}
+
+@if (currentUser == null)
+{
+    <p>Ładowanie profilu…</p>
+}
+else
+{
+    <EditForm Model="currentUser" OnValidSubmit="SaveAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Login</label>
+            <InputText class="form-control" @bind-Value="currentUser.Username" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <InputText class="form-control" @bind-Value="currentUser.Email" />
+        </div>
+        <button class="btn btn-primary" type="submit" disabled="@saving">
+            Zapisz
+        </button>
+        @if (statusMessage != null)
+        {
+            <div class="mt-2">@statusMessage</div>
+        }
+    </EditForm>
+}
